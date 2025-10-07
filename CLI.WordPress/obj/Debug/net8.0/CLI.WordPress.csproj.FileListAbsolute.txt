@@ -16,3 +16,4 @@
 /Users/shahm/Downloads/wordpressapp/CLI.WordPress/bin/Debug/net8.0/lib.wordpress.pdb
 /Users/shahm/Downloads/wordpressapp/CLI.WordPress/obj/Debug/net8.0/CLI.WordPress.csproj.AssemblyReference.cache
 /Users/shahm/Downloads/wordpressapp/CLI.WordPress/obj/Debug/net8.0/CLI.Word.5A201CF9.Up2Date
+/Users/shahm/Downloads/wordpressapp/CLI.WordPress/obj/Debug/net8.0/CLI.WordPress.sourcelink.json

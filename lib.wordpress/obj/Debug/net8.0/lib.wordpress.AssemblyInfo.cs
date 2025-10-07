@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lib.wordpress")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b5fec14b6719aae8e6a4f15ac58e5b8e7ffe117")]
 [assembly: System.Reflection.AssemblyProductAttribute("lib.wordpress")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lib.wordpress")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

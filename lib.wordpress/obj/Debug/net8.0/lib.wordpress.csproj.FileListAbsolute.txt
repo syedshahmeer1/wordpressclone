@@ -9,3 +9,4 @@
 /Users/shahm/Downloads/wordpressapp/lib.wordpress/obj/Debug/net8.0/refint/lib.wordpress.dll
 /Users/shahm/Downloads/wordpressapp/lib.wordpress/obj/Debug/net8.0/lib.wordpress.pdb
 /Users/shahm/Downloads/wordpressapp/lib.wordpress/obj/Debug/net8.0/ref/lib.wordpress.dll
+/Users/shahm/Downloads/wordpressapp/lib.wordpress/obj/Debug/net8.0/lib.wordpress.sourcelink.json

@@ -34,9 +34,7 @@ namespace CLI.WordPress
                 {
                     foreach (var b in Blogposts)
                     {
-                        Console.WriteLine($"Title: {b.Title}");
-Console.WriteLine($"Content: {b.Content}");
-
+                        Console.WriteLine(b);
                     }
 
                 }
