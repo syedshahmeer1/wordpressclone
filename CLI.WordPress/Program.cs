@@ -51,24 +51,42 @@ namespace CLI.WordPress
                 }
                 else if (choice1 == "e" || choice1 == "E")
                 {
+                    {
+                        Blogposts.ForEach(Console.WriteLine);
+                        Console.WriteLine("Enter the ID of the blogpost to update:");
+                        var selection = Console.ReadLine();
+                        if (int.TryParse(selection ?? "0", out int IntSelection))
+                        {
+                            var blogToUpdate = Blogposts.Where(b => b != null)
+                         .FirstOrDefault(b => (b?.Id ?? -1) == IntSelection);
+                            if (blogToUpdate != null)
+                            {
+                                blogToUpdate.Title = Console.ReadLine();
+                                blogToUpdate.Content = Console.ReadLine();
+                            }
+                        }
+                }
+                    
+
 
                 }
                 else if (choice1 == "d" || choice1 == "D")
                 {
-                    Blogposts.ForEach(Console.WriteLine);
-                    Console.WriteLine("Enter the ID of the blogpost to delete:");
-                    var selection = Console.ReadLine();
-                   if( int.TryParse(selection ?? "0", out int IntSelection) )
                     {
-                       var blogToRemove = Blogposts.Where(b => b != null)
-                    .FirstOrDefault(b => (b?.Id ?? -1) == IntSelection);
-                    Blogposts.Remove(blogToRemove);
+                        Blogposts.ForEach(Console.WriteLine);
+                        Console.WriteLine("Enter the ID of the blogpost to delete:");
+                        var selection = Console.ReadLine();
+                        if (int.TryParse(selection ?? "0", out int IntSelection))
+                        {
+                            var blogToRemove = Blogposts.Where(b => b != null)
+                         .FirstOrDefault(b => (b?.Id ?? -1) == IntSelection);
+                            Blogposts.Remove(blogToRemove);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid ID. Please try again.");
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("Invalid ID. Please try again.");
-                    }
-                    
 
                 }
                 else if (choice1 == "x" || choice1 == "X")
