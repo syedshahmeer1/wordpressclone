@@ -28,6 +28,17 @@ namespace CLI.WordPress
                     blog.Title = Console.ReadLine();
                     Console.WriteLine("Enter the content of the blogpost:");
                     blog.Content = Console.ReadLine();
+                    var maxId = -1;
+                    if (Blogposts.Any())
+                    {
+                        maxId = Blogposts.Select(b => b?.Id ?? -1).Max();
+
+                    }
+                    else
+                    {
+                        maxId = 0;
+                    }
+                    blog.Id = ++maxId;
                     Blogposts.Add(blog);
                 }
                 else if (choice1 == "l" || choice1 == "L")
@@ -44,6 +55,20 @@ namespace CLI.WordPress
                 }
                 else if (choice1 == "d" || choice1 == "D")
                 {
+                    Blogposts.ForEach(Console.WriteLine);
+                    Console.WriteLine("Enter the ID of the blogpost to delete:");
+                    var selection = Console.ReadLine();
+                   if( int.TryParse(selection ?? "0", out int IntSelection) )
+                    {
+                       var blogToRemove = Blogposts.Where(b => b != null)
+                    .FirstOrDefault(b => (b?.Id ?? -1) == IntSelection);
+                    Blogposts.Remove(blogToRemove);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid ID. Please try again.");
+                    }
+                    
 
                 }
                 else if (choice1 == "x" || choice1 == "X")

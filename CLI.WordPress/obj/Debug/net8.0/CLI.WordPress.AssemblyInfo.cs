@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CLI.WordPress")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b5fec14b6719aae8e6a4f15ac58e5b8e7ffe117")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb9e370073d2d8f5083b63207dde30329b8fe1e2")]
 [assembly: System.Reflection.AssemblyProductAttribute("CLI.WordPress")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CLI.WordPress")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
