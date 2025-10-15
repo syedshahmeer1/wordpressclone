@@ -1,7 +1,8 @@
 ﻿
 using System.Xml.Serialization;
 using System;
-using lib.wordpress.Models; 
+using lib.wordpress.Models;
+using lib.wordpress;
 namespace CLI.WordPress
 {
 	class Program
@@ -9,7 +10,7 @@ namespace CLI.WordPress
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to WordPress");
-            List<Blog?> Blogposts = new List<Blog?>();
+            List<Blog?> Blogposts = BlogServiceProxy.Current.Blogs;
              bool cont = true;
 
             do
@@ -24,29 +25,13 @@ namespace CLI.WordPress
                 if (choice1 == "c" || choice1 == "C")
                 {
                     var blog = new Blog();
-                    Console.WriteLine("Enter the title of the blogpost:");
                     blog.Title = Console.ReadLine();
-                    Console.WriteLine("Enter the content of the blogpost:");
                     blog.Content = Console.ReadLine();
-                    var maxId = -1;
-                    if (Blogposts.Any())
-                    {
-                        maxId = Blogposts.Select(b => b?.Id ?? -1).Max();
-
-                    }
-                    else
-                    {
-                        maxId = 0;
-                    }
-                    blog.Id = ++maxId;
-                    Blogposts.Add(blog);
+                    BlogServiceProxy.Current.AddOrUpdate(blog);
                 }
                 else if (choice1 == "l" || choice1 == "L")
                 {
-                    foreach (var b in Blogposts)
-                    {
-                        Console.WriteLine(b);
-                    }
+                   BlogServiceProxy.Current.Blogs.ForEach(Console.WriteLine);
 
                 }
                 else if (choice1 == "e" || choice1 == "E")
@@ -64,6 +49,7 @@ namespace CLI.WordPress
                                 blogToUpdate.Title = Console.ReadLine();
                                 blogToUpdate.Content = Console.ReadLine();
                             }
+                            BlogServiceProxy.Current.AddOrUpdate(blogToUpdate);
                         }
                 }
                     
@@ -78,9 +64,7 @@ namespace CLI.WordPress
                         var selection = Console.ReadLine();
                         if (int.TryParse(selection ?? "0", out int IntSelection))
                         {
-                            var blogToRemove = Blogposts.Where(b => b != null)
-                         .FirstOrDefault(b => (b?.Id ?? -1) == IntSelection);
-                            Blogposts.Remove(blogToRemove);
+                            BlogServiceProxy.Current.Delete(IntSelection);
                         }
                         else
                         {
