@@ -3,6 +3,7 @@ using System;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using lib.wordpress.Models;
 
 namespace lib.wordpress
@@ -11,6 +12,7 @@ namespace lib.wordpress
     {
         private List<Blog?> blogposts;
         private static BlogServiceProxy? instance;
+        private static object Instancelock = new object();
 
         private BlogServiceProxy()
         {
@@ -21,11 +23,13 @@ namespace lib.wordpress
         {
             get
             {
-                if (instance == null)
+                lock (Instancelock  )
                 {
-                    instance = new BlogServiceProxy();
+                    if (instance == null)
+                    {
+                        instance = new BlogServiceProxy();
+                    }
                 }
-
                 return instance;
             }
         }
